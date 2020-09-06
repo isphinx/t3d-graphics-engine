@@ -26,7 +26,7 @@ namespace T3D{
 			Transform t;
 			float angle = Math::TWO_PI*i/density;
 			t.setLocalPosition(Vector3(radius*cosf(angle),0,radius*sinf(angle)));
-			t.setLocalRotation(Quaternion(Vector3(0,-angle,0)));
+			// t.setLocalRotation(Quaternion(Vector3(0,-angle,0)));
 			path.push_back(t);
 		}
 

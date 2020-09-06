@@ -12,8 +12,8 @@
 #define TEXTURE_H
 
 #include <string>
-#include "sdl\sdl.h"
-#include <sdl\SDL_ttf.h>
+#include "sdl/SDL.h"
+#include "SDL_ttf.h"
 #include "Colour.h"
 
 namespace T3D

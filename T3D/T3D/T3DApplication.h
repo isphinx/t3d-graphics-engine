@@ -17,7 +17,7 @@
 #include "renderer.h"
 #include "Font.h"
 #include <list>
-#include "SoundManager.h"
+// #include "SoundManager.h"
 
 using namespace std;
 
@@ -46,7 +46,7 @@ namespace T3D
 		Task *findTask(const char *name);
 		bool validTask(Task *t);				// test that task is still alive
 
-		SoundManager *soundManager;
+		// SoundManager *soundManager;
 
 	protected:
 		bool running;

@@ -12,7 +12,7 @@
 #define FONT_H
 
 #include <vector>
-#include <sdl\SDL_ttf.h>
+#include "SDL_ttf.h"
 
 namespace T3D{
 

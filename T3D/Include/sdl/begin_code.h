@@ -20,30 +20,30 @@
     slouken@libsdl.org
 */
 
-/** 
+/**
  *  @file begin_code.h
  *  This file sets things up for C dynamic library function definitions,
  *  static inlined functions, and structures aligned at 4-byte alignment.
  *  If you don't like ugly C preprocessor code, don't look at this file. :)
  */
 
-/** 
- *  @file begin_code.h
- *  This shouldn't be nested -- included it around code only.
- */
+ /**
+  *  @file begin_code.h
+  *  This shouldn't be nested -- included it around code only.
+  */
 #ifdef _begin_code_h
 #error Nested inclusion of begin_code.h
 #endif
 #define _begin_code_h
 
-/** 
- *  @def DECLSPEC
- *  Some compilers use a special export keyword
- */
+  /**
+   *  @def DECLSPEC
+   *  Some compilers use a special export keyword
+   */
 #ifndef DECLSPEC
 # if defined(__BEOS__) || defined(__HAIKU__)
 #  if defined(__GNUC__)
-#   define DECLSPEC	__declspec(dllexport)
+#   define DECLSPEC
 #  else
 #   define DECLSPEC	__declspec(export)
 #  endif
@@ -85,10 +85,10 @@
 # endif
 #endif
 
-/** 
- *  @def SDLCALL
- *  By default SDL uses the C calling convention
- */
+   /**
+    *  @def SDLCALL
+    *  By default SDL uses the C calling convention
+    */
 #ifndef SDLCALL
 # if defined(__WIN32__) && !defined(__GNUC__)
 #  define SDLCALL __cdecl
@@ -118,13 +118,13 @@
 #endif /* !EKA2 */
 #endif /* __SYMBIAN32__ */
 
-/**
- *  @file begin_code.h
- *  Force structure packing at 4 byte alignment.
- *  This is necessary if the header is included in code which has structure
- *  packing set to an alternate value, say for loading structures from disk.
- *  The packing is reset to the previous value in close_code.h 
- */
+    /**
+     *  @file begin_code.h
+     *  Force structure packing at 4 byte alignment.
+     *  This is necessary if the header is included in code which has structure
+     *  packing set to an alternate value, say for loading structures from disk.
+     *  The packing is reset to the previous value in close_code.h
+     */
 #if defined(_MSC_VER) || defined(__MWERKS__) || defined(__BORLANDC__)
 #ifdef _MSC_VER
 #pragma warning(disable: 4103)
@@ -132,21 +132,26 @@
 #ifdef __BORLANDC__
 #pragma nopackwarning
 #endif
+#ifdef _M_X64
+     /* Use 8-byte alignment on 64-bit architectures, so pointers are aligned */
+#pragma pack(push,8)
+#else
 #pragma pack(push,4)
+#endif
 #elif (defined(__MWERKS__) && defined(__MACOS__))
 #pragma options align=mac68k4byte
 #pragma enumsalwaysint on
 #endif /* Compiler needs structure packing set */
 
-/**
- *  @def SDL_INLINE_OKAY
- *  Set up compiler-specific options for inlining functions
- */
+     /**
+      *  @def SDL_INLINE_OKAY
+      *  Set up compiler-specific options for inlining functions
+      */
 #ifndef SDL_INLINE_OKAY
 #ifdef __GNUC__
 #define SDL_INLINE_OKAY
 #else
-/* Add any special compiler-specific cases here */
+      /* Add any special compiler-specific cases here */
 #if defined(_MSC_VER) || defined(__BORLANDC__) || \
     defined(__DMC__) || defined(__SC__) || \
     defined(__WATCOMC__) || defined(__LCC__) || \
@@ -176,10 +181,10 @@
 #define __inline__
 #endif
 
-/**
- *  @def NULL
- *  Apparently this is needed by several Windows compilers
- */
+ /**
+  *  @def NULL
+  *  Apparently this is needed by several Windows compilers
+  */
 #if !defined(__MACH__)
 #ifndef NULL
 #ifdef __cplusplus

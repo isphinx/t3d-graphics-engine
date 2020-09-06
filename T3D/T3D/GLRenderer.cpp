@@ -9,11 +9,11 @@
 // Handles rendering tasks using OpenGL
 // Some code adapted from KXG262
 
-#include <sdl\SDL.h>
-#include <sdl\SDL_ttf.h>
-#include <gl\glew.h>
-#include <gl\GL.h>
-#include <gl\GLU.h>
+#include "sdl/SDL.h"
+#include "SDL_ttf.h"
+#include <gl/glew.h>
+#include <gl/GL.h>
+#include <gl/GLU.h>
 #include <iostream>
 
 #include "GLRenderer.h"

@@ -12,7 +12,7 @@
 #ifndef BILLBOARD_H
 #define BILLBOARD_H
 
-#include "component.h"
+#include "Component.h"
 #include "Transform.h"
 
 namespace T3D

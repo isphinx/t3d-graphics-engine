@@ -18,6 +18,9 @@
     <ClCompile Include="Colour.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="Cube2.cpp" />
+    <ClInclude Include="Cylinder.cpp" />
+    <ClInclude Include="Pyramid.cpp" />
     <ClCompile Include="DiagMessageTask.cpp" />
     <ClCompile Include="DrawTask.cpp" />
     <ClCompile Include="Font.cpp" />
@@ -63,6 +66,7 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Tutorial1.cpp" />
+    <ClCompile Include="Tutorial4.cpp" />
     <ClCompile Include="WinGLApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +77,9 @@
     <ClInclude Include="Colour.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Cube.h" />
+    <ClInclude Include="Cube2.h" />
+    <ClInclude Include="Cylinder.h" />
+    <ClInclude Include="Pyramid.h" />
     <ClInclude Include="DiagMessageTask.h" />
     <ClInclude Include="DrawTask.h" />
     <ClInclude Include="Font.h" />
@@ -117,6 +124,7 @@
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Tutorial1.h" />
+    <ClInclude Include="Tutorial4.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Vector4.h" />
     <ClInclude Include="WinGLApplication.h" />

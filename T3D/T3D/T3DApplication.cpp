@@ -26,7 +26,7 @@ namespace T3D
 
 		root = NULL;
 		Input::init();
-		soundManager = new SoundManager();
+		// soundManager = new SoundManager();
 	}
 
 

@@ -29,13 +29,15 @@ namespace T3D {
 	class Quaternion
 	{
 	public:
-		union {
-			struct {
-				float    s; //!< the real component
-				Vector3 v; //!< the imaginary components
-			};
-			struct { float elem[4]; }; //! the raw elements of the Quaternion
-		};
+		// union {
+		// 	struct {
+		// 		float    s; //!< the real component
+		// 		Vector3 v; //!< the imaginary components
+		// 	};
+		// 	struct { float elem[4]; }; //! the raw elements of the Quaternion
+		// };
+		float    s; //!< the real component
+		Vector3 v; //!< the imaginary components
 
 
 		/*! Default Quaternion constructor*/

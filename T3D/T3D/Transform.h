@@ -49,7 +49,8 @@ namespace T3D
 		void setLocalRotation(Quaternion& q);
 		void setLocalScale(const Vector3& scl);
 
-		void move(const Vector3& delta);void Transform::roll(const float angle);
+		void move(const Vector3& delta);
+		void roll(const float angle);
 		void pitch(const float angle);
 		void yaw(const float angle);
 		void rotate(const Vector3& axis, const float angle);

@@ -8,11 +8,11 @@
 //
 // t3d application for windows and OpenGL
 
-#include <windows.h>
+// #include <windows.h>
 #include <gl/glew.h>
 #include <GL/GL.h>
 #include <GL/GLU.h>
-#include <sdl\SDL_ttf.h>
+#include "SDL_ttf.h"
 
 #include "WinGLApplication.h"
 #include "GLRenderer.h"
@@ -23,7 +23,7 @@
 #include "Input.h"
 #include "PerfLogTask.h"
 #include "DiagMessageTask.h"
-#include "SoundManager.h"
+// #include "SoundManager.h"
 
 
 // stdin, stdout, and stderr are defined differently in Visual Studio 2015
@@ -63,7 +63,7 @@ namespace T3D
 		}
 		
 		//Initialize SDL_mixer
-		soundManager->init();
+		// soundManager->init();
 
 		SDL_GL_SetAttribute(SDL_GL_RED_SIZE,            8);
 		SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE,          8);
@@ -88,7 +88,7 @@ namespace T3D
 		glewInit();
 		glClearColor(0, 0, 0, 0);
 		glClearDepth(1.0f);
-		glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+		glViewport(0, 0, WINDOW_WIDTH * 2, WINDOW_HEIGHT * 2);
 
 		// Initialize SDL_ttf library
 		if (TTF_Init() != 0)
@@ -116,7 +116,7 @@ namespace T3D
 		SDL_Event sdlEvent;
 		lastFrame = SDL_GetTicks()/1000.0f;
 		while(running) {
-			soundManager->update();
+			// soundManager->update();
 
 			float thisFrame = SDL_GetTicks()/1000.0f;
 			dt = thisFrame-lastFrame;
@@ -154,17 +154,18 @@ namespace T3D
 				break;
 			case SDL_KEYDOWN:				
 				Input::onKeyDown(e->key.keysym.sym);
+				cout<<e->key.keysym.sym;
 				if (Input::keyDown[KEY_ESCAPE])
 					running = false;
-				if (Input::keyDown[KEY_F1])
+				if (Input::keyDown[KEY_1])
 					renderer->toggleWireframe();
-				if (Input::keyDown[KEY_F2])
+				if (Input::keyDown[KEY_2])
 					renderer->toggleAxes();
-				if (Input::keyDown[KEY_F3])
+				if (Input::keyDown[KEY_3])
 					renderer->toggleGrid();
-				if (Input::keyDown[KEY_F4])
+				if (Input::keyDown[KEY_4])
 					renderer->togglePoints();
-				if (Input::keyDown[KEY_F9])
+				if (Input::keyDown[KEY_5])
 				{
 					int line = 0;
 					addTask(new DiagMessageTask(this, "ESCAPE     quit", 2, 600-(line++*20), true, 5.0));
@@ -175,7 +176,7 @@ namespace T3D
 					addTask(new DiagMessageTask(this, "F9         show help", 2, 600-(line++*20), true, 5.0));
 					addTask(new DiagMessageTask(this, "F10        show stats", 2, 600-(line++*20), true, 5.0));
 				}
-				if (Input::keyDown[KEY_F10])
+				if (Input::keyDown[KEY_F])
 				{
 					// find log task
 					PerfLogTask *task = (PerfLogTask *)findTask("PerfLogTask");

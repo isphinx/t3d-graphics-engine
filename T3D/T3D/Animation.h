@@ -16,7 +16,7 @@
 #include <string>
 #include <map>
 #include <iostream>
-#include "component.h"
+#include "Component.h"
 #include "Transform.h"
 #include "Vector3.h"
 #include "Bone.h"

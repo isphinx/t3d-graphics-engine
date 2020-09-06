@@ -9,7 +9,7 @@
 // Class for loading, storing and manipulating textures
 
 #include <iostream>
-#include <sdl\SDL_image.h>
+#include "SDL_image.h"
 #include "Texture.h"
 #include "Math.h"
 

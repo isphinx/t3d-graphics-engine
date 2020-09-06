@@ -2,25 +2,24 @@
 // KXG363 - Advanced Games Programming, 2012
 // =========================================================================================
 //
-// Author: Robert Ollington
+// Author: Xin Li
 //
 // cube.h
 //
 // Simple cube mesh with coloured sides
 
-#ifndef CUBE_H
-#define CUBE_H
+#ifndef PYRAMID_H
+#define PYRAMID_H
 
 #include "Mesh.h"
 
 namespace T3D
 {
-	class Cube :
-		public Mesh
+	class Pyramid : public Mesh
 	{
 	public:
-		Cube(float size);
-		virtual ~Cube(void);
+		Pyramid(float size);
+		virtual ~Pyramid(void);
 	};
 }
 

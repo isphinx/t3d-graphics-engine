@@ -2,25 +2,24 @@
 // KXG363 - Advanced Games Programming, 2012
 // =========================================================================================
 //
-// Author: Robert Ollington
+// Author: Xin Li
 //
-// cube.h
+// Cylinder.h
 //
-// Simple cube mesh with coloured sides
+// Simple Cylinder mesh with coloured sides
 
-#ifndef CUBE_H
-#define CUBE_H
+#ifndef CYLINDER_H
+#define CYLINDER_H
 
 #include "Mesh.h"
 
 namespace T3D
 {
-	class Cube :
-		public Mesh
+	class Cylinder : public Mesh
 	{
 	public:
-		Cube(float size);
-		virtual ~Cube(void);
+		Cylinder(int density, float radius, float height);
+		virtual ~Cylinder(void);
 	};
 }
 

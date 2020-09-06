@@ -8,7 +8,7 @@
 //
 // A component for controlling skeletal animation.
 
-#include "animation.h"
+#include "Animation.h"
 #include "GameObject.h"
 #include "Math.h"
 

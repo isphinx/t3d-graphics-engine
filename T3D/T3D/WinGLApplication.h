@@ -11,7 +11,7 @@
 #ifndef WINGLAPPLICATION_H
 #define WINGLAPPLICATION_H
 
-#include <sdl\SDL.h>
+#include "sdl/SDL.h"
 
 #include "t3dapplication.h"
 #include "FontCache.h"

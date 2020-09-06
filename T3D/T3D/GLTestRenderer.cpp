@@ -8,9 +8,9 @@
 //
 // A dummy renderer that ignores the scene entirely.  Intended to be used as an OpenGL snadbox.
 
-#include <gl\glew.h>
-#include <gl\GL.h>
-#include <gl\GLU.h>
+#include <gl/glew.h>
+#include <gl/GL.h>
+#include <gl/GLU.h>
 #include <iostream>
 
 #include "GLTestRenderer.h"
