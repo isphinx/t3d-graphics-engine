@@ -11,7 +11,7 @@
 #include <sstream>
 #include <fstream>
 #include <iomanip>
-#include "perflogtask.h"
+#include "PerfLogTask.h"
 
 namespace T3D{
 

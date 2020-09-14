@@ -15,7 +15,7 @@
 #define	WINDOW_HEIGHT		640
 
 #include <list>
-#include "renderer.h"
+#include "Renderer.h"
 
 namespace T3D
 {

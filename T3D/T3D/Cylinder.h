@@ -18,7 +18,7 @@ namespace T3D
 	class Cylinder : public Mesh
 	{
 	public:
-		Cylinder(int density, float radius, float height);
+		Cylinder(float radius, float height, int density);
 		virtual ~Cylinder(void);
 	};
 }

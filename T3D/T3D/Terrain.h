@@ -12,7 +12,7 @@
 #define TERRAIN_H
 
 #include <string>
-#include "component.h"
+#include "Component.h"
 #include "Vector3.h"
 
 namespace T3D{

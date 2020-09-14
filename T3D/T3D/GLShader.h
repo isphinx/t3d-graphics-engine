@@ -10,7 +10,7 @@
 
 #pragma once
 
-#include "shader.h"
+#include "Shader.h"
 
 namespace T3D{
 

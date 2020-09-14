@@ -9,7 +9,7 @@
 // Simple task for drawing to and animating textures, used in tutorial 1 for practice implementing drawing routines
 
 #pragma once
-#include "task.h"
+#include "Task.h"
 #include "T3DApplication.h"
 #include "Texture.h"
 

@@ -8,7 +8,7 @@
 //
 // Simple behaviour to rotate an object
 
-#include "rotatebehaviour.h"
+#include "RotateBehaviour.h"
 #include "GameObject.h"
 #include "Transform.h"
 #include "Math.h"

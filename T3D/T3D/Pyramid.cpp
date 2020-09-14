@@ -51,9 +51,9 @@ namespace T3D
 		// Setup other arrays		
 		pos = 0;
 		//front
-		for (int i=0; i<5; i++){
-			colors[pos++] = 1; colors[pos++] = 0; colors[pos++] = 0; colors[pos++] = 1;
-		}
+		// for (int i=0; i<5; i++){
+		// 	colors[pos++] = 1; colors[pos++] = 0; colors[pos++] = 0; colors[pos++] = 1;
+		// }
 		// //back
 		// for (int i=0; i<4; i++){
 		// 	colors[pos++] = 1; colors[pos++] = 0; colors[pos++] = 0; colors[pos++] = 1;
@@ -76,13 +76,13 @@ namespace T3D
 		// }	
 
 		//uvs
-		pos = 0;
-		for (int f = 0; f<5; f++){
-			uvs[pos++] = 0; uvs[pos++] = 0; 
-			uvs[pos++] = 0; uvs[pos++] = 1; 
-			uvs[pos++] = 1; uvs[pos++] = 1; 
-			uvs[pos++] = 1; uvs[pos++] = 0; 
-		}
+		// pos = 0;
+		// for (int f = 0; f<5; f++){
+		// 	uvs[pos++] = 0; uvs[pos++] = 0; 
+		// 	uvs[pos++] = 0; uvs[pos++] = 1; 
+		// 	uvs[pos++] = 1; uvs[pos++] = 1; 
+		// 	uvs[pos++] = 1; uvs[pos++] = 0; 
+		// }
 	}
 
 

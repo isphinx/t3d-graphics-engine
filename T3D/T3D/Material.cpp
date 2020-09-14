@@ -8,7 +8,7 @@
 //
 // Class for encapsulating material properties
 
-#include "material.h"
+#include "Material.h"
 
 namespace T3D{
 	Material::Material(void)

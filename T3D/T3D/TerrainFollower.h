@@ -11,7 +11,7 @@
 #ifndef TERRAINFOLLOWER_H
 #define TERRAINFOLLOWER_H
 
-#include "component.h"
+#include "Component.h"
 #include "Terrain.h"
 
 namespace T3D{

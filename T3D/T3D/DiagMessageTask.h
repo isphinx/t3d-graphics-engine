@@ -11,7 +11,7 @@
 #ifndef DIAGMESSAGETASK_H
 #define DIAGMESSAGETASK_H
 
-#include "task.h"
+#include "Task.h"
 
 namespace T3D{
 	class DiagMessageTask :

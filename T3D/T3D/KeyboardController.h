@@ -11,7 +11,7 @@
 #ifndef KEYBOARDCONTROLLER_H
 #define KEYBOARDCONTROLLER_H
 
-#include "component.h"
+#include "Component.h"
 
 namespace T3D
 {

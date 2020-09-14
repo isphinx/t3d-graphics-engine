@@ -2,7 +2,7 @@
 #define SWEEP_H
 
 #include <vector>
-#include "mesh.h"
+#include "Mesh.h"
 #include "Vector3.h"
 #include "SweepPath.h"
 

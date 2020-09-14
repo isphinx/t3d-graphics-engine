@@ -13,7 +13,7 @@
 
 #include "sdl/SDL.h"
 
-#include "t3dapplication.h"
+#include "T3DApplication.h"
 #include "FontCache.h"
 
 namespace T3D 

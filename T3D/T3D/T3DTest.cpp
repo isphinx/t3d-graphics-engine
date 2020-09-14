@@ -8,7 +8,7 @@
 //
 // Example t3dapplication
 
-#include "t3dtest.h"
+#include "T3DTest.h"
 #include "Cube.h"
 #include "PlaneMesh.h"
 #include "Sphere.h"

@@ -14,6 +14,8 @@
 #include "Cube2.h"
 #include "Pyramid.h"
 #include "Cylinder.h"
+#include "Key.h"
+#include "Lamp.h"
 
 namespace T3D{
 
@@ -45,7 +47,8 @@ namespace T3D{
 		// carema
 		GameObject *camObj = new GameObject(this);
 		renderer->camera = new Camera(Camera::PERSPECTIVE,0.1,500.0,45.0,1.6);
-		camObj->getTransform()->setLocalPosition(Vector3(0,0,20));
+		// camObj->getTransform()->setLocalPosition(Vector3(0,0,20));
+		camObj->getTransform()->setLocalPosition(Vector3(0, 0.5, 3));
 		camObj->getTransform()->setLocalRotation(Vector3(0,0,0));
 		camObj->setCamera(renderer->camera);
 		camObj->getTransform()->setParent(root);
@@ -53,24 +56,41 @@ namespace T3D{
 
 		// material
 		Material *color = renderer->createMaterial(Renderer::PR_OPAQUE);
-		color->setDiffuse(1,0,0,1);
+		color->setDiffuse(1,0,1,1);
 
-		GameObject *model = NULL;
 		// pyramid
 		// model = new GameObject(this);
 		// model->setMesh(new Pyramid(1));
 		// model->setMaterial(color);
-		// model->getTransform()->setLocalPosition(Vector3(-5,0,0));
+		// model->getTransform()->setLocalPosition(Vector3(5,0,0));
 		// model->getTransform()->setParent(root);
 		// model->getTransform()->name = "Pyramid";
 
-		// cube
-		model = new GameObject(this);
-		model->setMesh(new Cylinder(10, 5, 2));
-		model->setMaterial(color);
-		model->getTransform()->setLocalPosition(Vector3(5,0,0));
-		model->getTransform()->setParent(root);
-		model->getTransform()->name = "Cylinder";
+		// cylinder
+		// GameObject *model = NULL;
+		// model = new GameObject(this);
+		// model->setMesh(new Cylinder(400, 1, 1));
+		// model->setMaterial(color);
+		// model->getTransform()->setLocalPosition(Vector3(5,0,0));
+		// model->getTransform()->setParent(root);
+		// model->getTransform()->name = "Cylinder";
+
+
+		Material *grey = renderer->createMaterial(Renderer::PR_OPAQUE);
+		grey->setDiffuse(0.8,0.8,0.9,1);
+		Lamp *lamp = new Lamp(this);
+		lamp->setMaterial(grey);
+		lamp->getTransform()->setLocalPosition(Vector3(0,0,0));
+		lamp->getTransform()->setParent(root);
+
+		lamp->base->setMaterial(grey);
+		lamp->arm1->setMaterial(grey);
+		lamp->arm2->setMaterial(grey);
+
+		// Quaternion q = Quaternion(Vector3(-Math::PI/10,Math::PI/4,0));
+		// lamp->baseJoint->getTransform()->setLocalRotation(q);
+		// q = Quaternion(Vector3(Math::PI/4,0,0));
+		// lamp->elbowJoint->getTransform()->setLocalRotation(q);
 
 		return true;
 	}

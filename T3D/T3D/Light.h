@@ -11,7 +11,7 @@
 #ifndef LIGHT_H
 #define LIGHT_H
 
-#include "component.h"
+#include "Component.h"
 
 namespace T3D
 {

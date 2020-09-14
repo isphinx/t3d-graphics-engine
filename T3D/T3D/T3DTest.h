@@ -11,7 +11,7 @@
 #ifndef T3DTEST
 #define T3DTEST
 
-#include "winglapplication.h"
+#include "WinGLApplication.h"
 
 namespace T3D{
 

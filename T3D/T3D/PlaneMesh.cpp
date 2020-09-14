@@ -1,4 +1,4 @@
-#include "planemesh.h"
+#include "PlaneMesh.h"
 
 namespace T3D{
 

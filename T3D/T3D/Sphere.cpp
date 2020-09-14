@@ -9,7 +9,7 @@
 // A simple sphere mesh with variable size and polygon density
 
 #include <math.h>
-#include "sphere.h"
+#include "Sphere.h"
 #include "Math.h"
 #include <iostream>
 

@@ -156,7 +156,7 @@ namespace T3D
 
 	void Texture::clear(Colour c){
 		Uint32 colour = SDL_MapRGBA(image->format, c.r, c.g, c.b, c.a);
-		SDL_Rect all = {0,0,image->w,image->h};
+		SDL_Rect all = {0,0,Uint16(image->w),Uint16(image->h)};
 		SDL_FillRect(image, &all, colour);
 	}
 

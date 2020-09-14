@@ -11,7 +11,7 @@
 #ifndef ROTATEBEHAVIOUR_H
 #define ROTATEBEHAVIOUR_H
 
-#include "component.h"
+#include "Component.h"
 #include "Vector3.h"
 #include "Quaternion.h"
 

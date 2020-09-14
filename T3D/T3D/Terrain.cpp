@@ -9,7 +9,7 @@
 // Component used for creating terrains - from an image file, or procedurally.
 
 #include "sdl/SDL.h"
-#include "terrain.h"
+#include "Terrain.h"
 #include "PlaneMesh.h"
 #include "Material.h"
 #include "Math.h"

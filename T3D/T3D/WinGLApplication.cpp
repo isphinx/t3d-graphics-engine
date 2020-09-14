@@ -10,8 +10,8 @@
 
 // #include <windows.h>
 #include <gl/glew.h>
-#include <GL/GL.h>
-#include <GL/GLU.h>
+#include <gl/GL.h>
+#include <gl/GLU.h>
 #include "SDL_ttf.h"
 
 #include "WinGLApplication.h"
@@ -86,7 +86,7 @@ namespace T3D
 			return false;
 		}
 		glewInit();
-		glClearColor(0, 0, 0, 0);
+		glClearColor(1, 1, 1, 0);
 		glClearDepth(1.0f);
 		glViewport(0, 0, WINDOW_WIDTH * 2, WINDOW_HEIGHT * 2);
 
@@ -157,15 +157,15 @@ namespace T3D
 				cout<<e->key.keysym.sym;
 				if (Input::keyDown[KEY_ESCAPE])
 					running = false;
-				if (Input::keyDown[KEY_1])
+				if (Input::keyDown[KEY_F1] || Input::keyDown[KEY_1])
 					renderer->toggleWireframe();
-				if (Input::keyDown[KEY_2])
+				if (Input::keyDown[KEY_F2] || Input::keyDown[KEY_2])
 					renderer->toggleAxes();
-				if (Input::keyDown[KEY_3])
+				if (Input::keyDown[KEY_F3] || Input::keyDown[KEY_3])
 					renderer->toggleGrid();
-				if (Input::keyDown[KEY_4])
+				if (Input::keyDown[KEY_F4] || Input::keyDown[KEY_4])
 					renderer->togglePoints();
-				if (Input::keyDown[KEY_5])
+				if (Input::keyDown[KEY_F9] || Input::keyDown[KEY_5])
 				{
 					int line = 0;
 					addTask(new DiagMessageTask(this, "ESCAPE     quit", 2, 600-(line++*20), true, 5.0));
@@ -176,7 +176,7 @@ namespace T3D
 					addTask(new DiagMessageTask(this, "F9         show help", 2, 600-(line++*20), true, 5.0));
 					addTask(new DiagMessageTask(this, "F10        show stats", 2, 600-(line++*20), true, 5.0));
 				}
-				if (Input::keyDown[KEY_F])
+				if (Input::keyDown[KEY_F10] || Input::keyDown[KEY_6])
 				{
 					// find log task
 					PerfLogTask *task = (PerfLogTask *)findTask("PerfLogTask");

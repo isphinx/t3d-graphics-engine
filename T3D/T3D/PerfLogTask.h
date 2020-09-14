@@ -11,7 +11,7 @@
 #ifndef PERFLOGTASK_H
 #define PERFLOGTASK_H
 
-#include "task.h"
+#include "Task.h"
 
 namespace T3D{
 

@@ -1,29 +1,29 @@
 // =========================================================================================
-// KXG363 - Advanced Games Programming
+// KIT608 - Advanced Games Programming, 2020
 // =========================================================================================
 //
-// Author: Robert Ollington
+// Author: Xin Li
 //
-// Tutorial1.cpp
+// Assignment1.cpp
 //
-// Base application for tutorial 1.  Used in conjunction with DrawTask, a task for drawing onto a 2D texture.
+// Base application for Assigment 1.  Used in conjunction with DrawTask, a task for drawing onto a 2D texture.
 
-#pragma once
+#ifndef ASSIGMENT1TEST_H
+#define ASSIGMENT1TEST_H
+
 #include "WinGLApplication.h"
 #include "Texture.h"
 #include "DrawTask.h"
 
 namespace T3D{
 
-	class Tutorial4 :
-		public WinGLApplication
+	class Assignment1Test : public WinGLApplication
 	{
 	public:
-		Tutorial4(void);
-		~Tutorial4(void);
+		Assignment1Test(void);
+		~Assignment1Test(void);
 
 		bool init();
-
 
 	private:
 		Texture *drawArea;
@@ -33,3 +33,4 @@ namespace T3D{
 
 }
 
+#endif

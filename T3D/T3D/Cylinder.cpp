@@ -15,7 +15,7 @@
 
 namespace T3D
 {
-	Cylinder::Cylinder(int density, float radius, float height)
+	Cylinder::Cylinder(float radius, float height, int density)
 	{
 		// Set vertices
 		int d = density;
@@ -58,13 +58,13 @@ namespace T3D
 					);
 			setFace(i,
 					topcentre,
-					topsidestart + i,
-					topsidestart + (i + 1 % d)
+					topsidestart + ((i + 1) % d),
+					topsidestart + i
 					);
-			setFace(i,
+			setFace(d + i,
 					botcentre,
 					botsidestart + i,
-					botsidestart + (i + 1 % d)
+					botsidestart + ((i + 1) % d)
 					);
 
 		}
@@ -77,31 +77,11 @@ namespace T3D
 		calcNormals();	
 
 		// Setup other arrays		
-		// pos = 0;
-		// //front
-		// for (int i=0; i<4; i++){
-		// 	colors[pos++] = 1; colors[pos++] = 0; colors[pos++] = 0; colors[pos++] = 1;
-		// }
-		// //back
-		// for (int i=0; i<4; i++){
-		// 	colors[pos++] = 1; colors[pos++] = 0; colors[pos++] = 0; colors[pos++] = 1;
-		// }
-		// //left
-		// for (int i=0; i<4; i++){
-		// 	colors[pos++] = 0; colors[pos++] = 1; colors[pos++] = 0; colors[pos++] = 1;
-		// }
-		// //right
-		// for (int i=0; i<4; i++){
-		// 	colors[pos++] = 0; colors[pos++] = 1; colors[pos++] = 0; colors[pos++] = 1;
-		// }
-		// //bottom
-		// for (int i=0; i<4; i++){
-		// 	colors[pos++] = 0; colors[pos++] = 0; colors[pos++] = 1; colors[pos++] = 1;
-		// }
-		// //top
-		// for (int i=0; i<4; i++){
-		// 	colors[pos++] = 0; colors[pos++] = 0; colors[pos++] = 1; colors[pos++] = 1;
-		// }	
+		int pos = 0;
+		// side
+		for (int i=0; i<d*4+2; i++){
+			colors[pos++] = 1; colors[pos++] = 0; colors[pos++] = 0; colors[pos++] = 1;
+		}
 
 		// //uvs
 		// pos = 0;

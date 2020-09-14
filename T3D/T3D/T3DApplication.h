@@ -14,7 +14,7 @@
 
 
 #include "Transform.h"
-#include "renderer.h"
+#include "Renderer.h"
 #include "Font.h"
 #include <list>
 // #include "SoundManager.h"

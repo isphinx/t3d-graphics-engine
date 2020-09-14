@@ -8,7 +8,7 @@
 //
 // Bone class used for animation in conjunction with the Animation class
 
-#include "bone.h"
+#include "Bone.h"
 
 namespace T3D
 {	

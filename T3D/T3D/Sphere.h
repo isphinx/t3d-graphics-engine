@@ -11,7 +11,7 @@
 #ifndef SPHERE_H
 #define SPHERE_H
 
-#include "mesh.h"
+#include "Mesh.h"
 
 namespace T3D{
 

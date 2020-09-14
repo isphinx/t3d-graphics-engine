@@ -72,13 +72,13 @@ namespace T3D
 
 		Vector3 transformPoint(Vector3 &p);
 		
-        inline friend std::ostream& operator <<
-            ( std::ostream& o, const Transform& t )
-        {
+	inline friend std::ostream& operator <<
+		( std::ostream& o, const Transform& t )
+	{
 			o << "Transform(" << t.name << ")";
 			
 			return o;
-        }
+	}
 
 	private:
 		void calcLocalMatrix();

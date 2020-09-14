@@ -18,7 +18,7 @@ namespace T3D
 	class Colour
 	{
 	public:
-		Colour(int r, int g, int b, int a) : r(r), b(b), g(g), a(a){}
+		Colour(int r, int g, int b, int a) : r(r), g(g), b(b), a(a){}
 
 		Colour(uint32_t hex){
 			r = (hex >> 24) & 0xff;

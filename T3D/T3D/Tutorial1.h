@@ -9,7 +9,7 @@
 // Base application for tutorial 1.  Used in conjunction with DrawTask, a task for drawing onto a 2D texture.
 
 #pragma once
-#include "winglapplication.h"
+#include "WinGLApplication.h"
 #include "Texture.h"
 #include "DrawTask.h"
 

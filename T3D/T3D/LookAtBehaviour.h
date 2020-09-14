@@ -11,7 +11,7 @@
 #ifndef LOOKATBEHAVIOUR_H
 #define LOOKATBEHAVIOUR_H
 
-#include "component.h"
+#include "Component.h"
 #include "Vector3.h"
 #include "Transform.h"
 

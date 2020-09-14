@@ -9,7 +9,7 @@
 // A simple application used for testing lighting shaders
 
 #pragma once
-#include "winglapplication.h"
+#include "WinGLApplication.h"
 
 namespace T3D{
 
