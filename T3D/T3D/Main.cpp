@@ -15,9 +15,11 @@
 #include "ShaderTest.h"
 #include "GLTestApplication.h"
 
-// #ifdef main
-// #undef main
-// #endif
+#ifdef WIN32
+#ifdef main
+#undef main
+#endif
+#endif
 
 
 using namespace T3D;
