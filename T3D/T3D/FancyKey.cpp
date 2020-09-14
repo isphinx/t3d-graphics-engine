@@ -32,7 +32,7 @@ namespace T3D
 		GameObject* codecube = new GameObject(app);
 		codecube->setMesh(new Cube2(2.0,depth/2,codewide*7/2));
 		codecube->getTransform()->setParent(getTransform());
-		codecube->getTransform()->setLocalPosition(Vector3(-2.0,0.0,stemlength - codewide *4));
+		codecube->getTransform()->setLocalPosition(Vector3(-2.0,0.0,stemlength - codewide *5-0.5));
 		codecube->setMaterial(color);
 
 		for(int i = 0; i < 7; i++) {
