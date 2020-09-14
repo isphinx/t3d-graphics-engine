@@ -4,15 +4,15 @@
 //
 // Author: Xin Li
 //
-// Key2.cpp
+// FancyKey.cpp
 
 #include "Math.h"
-#include "Key2.h"
+#include "FancyKey.h"
 
 
 namespace T3D
 {
-	Key2::Key2(int density, float r1, float r2, float offset,
+	FancyKey::FancyKey(int density, float r1, float r2, float offset,
 			 float depth, float seglength, float segwidth,
 			 vector<float> code)
 	{
@@ -173,7 +173,7 @@ namespace T3D
 	}
 
 
-	Key2::~Key2(void)
+	FancyKey::~FancyKey(void)
 	{
 		// Mesh delete arrays if they have been created, not need to do anything here
 	}
