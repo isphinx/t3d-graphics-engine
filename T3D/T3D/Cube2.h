@@ -18,7 +18,7 @@ namespace T3D
 	class Cube2 : public Mesh
 	{
 	public:
-		Cube2(float size);
+		Cube2(float x, float y, float z);
 		virtual ~Cube2(void);
 	};
 }

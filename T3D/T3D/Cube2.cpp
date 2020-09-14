@@ -14,7 +14,7 @@
 
 namespace T3D
 {
-	Cube2::Cube2(float size)
+	Cube2::Cube2(float x, float y, float z)
 	{
 		// Init vertex and index arrays
 		initArrays(8,	// num vertices
@@ -25,15 +25,15 @@ namespace T3D
 
 		int pos=0;
 		//front
-		setVertex(pos++,-size,-size,-size);
-		setVertex(pos++,size,-size,-size);
-		setVertex(pos++,size,size,-size);
-		setVertex(pos++,-size,size,-size);
+		setVertex(pos++,-x,-y,-z);
+		setVertex(pos++,x,-y,-z);
+		setVertex(pos++,x,y,-z);
+		setVertex(pos++,-x,y,-z);
 		// //back
-		setVertex(pos++,-size,-size,size);
-		setVertex(pos++,size,-size,size);
-		setVertex(pos++,size,size,size);
-		setVertex(pos++,-size,size,size);
+		setVertex(pos++,-x,-y,z);
+		setVertex(pos++,x,-y,z);
+		setVertex(pos++,x,y,z);
+		setVertex(pos++,-x,y,z);
 
 		// Build quads
 		pos = 0;

@@ -174,15 +174,15 @@ namespace T3D{
 
 		// task 4 key
 		{
-			GameObject* fkey = new GameObject(this);
-			vector<float> code = { 1.0, 1.0, 1.0, 0.7, 1.0, 0.7, 0.9, 1.0, 0.4 };
-			fkey->setMesh(new FancyKey(40,2,4,1,0.5,4,1,code));
-			fkey->setMaterial(color);
+			vector<float> code = { 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0,
+								1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0 };
+			GameObject* fkey = new FancyKey(this, color, 40,2,4,1,0.5,20,1,code);
 			fkey->getTransform()->setParent(root);
 			fkey->getTransform()->setLocalPosition(Vector3(25, 0, 0));
 			fkey->getTransform()->name = "Key";
 			
 		}
+
 
 		return true;
 	}

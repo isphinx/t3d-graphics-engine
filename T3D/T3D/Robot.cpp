@@ -120,6 +120,8 @@ namespace T3D
 		elbowLeftJoint = new GameObject(app);
 		elbowLeftJoint->setMesh(new Sphere(0.5,8));
 		elbowLeftJoint->setMaterial(color);
+		Quaternion elq = Quaternion(Vector3(Math::PI/4,Math::PI/4,-Math::PI/4));
+		elbowLeftJoint->getTransform()->setLocalRotation(elq);
 		elbowLeftJoint->getTransform()->setLocalPosition(Vector3(-2.0,0.0,0));
 		elbowLeftJoint->getTransform()->setParent(shoulderLeftJoint->getTransform());
 		elbowLeftJoint->getTransform()->name = "elbowLeftJoint";
@@ -137,6 +139,8 @@ namespace T3D
 		elbowRightJoint = new GameObject(app);
 		elbowRightJoint->setMesh(new Sphere(0.5,8));
 		elbowRightJoint->setMaterial(color);
+		Quaternion erq = Quaternion(Vector3(Math::PI/4,Math::PI/4,0));
+		elbowRightJoint->getTransform()->setLocalRotation(erq);
 		elbowRightJoint->getTransform()->setLocalPosition(Vector3(-2.0,0.0,0));
 		elbowRightJoint->getTransform()->setParent(shoulderRightJoint->getTransform());
 		elbowRightJoint->getTransform()->name = "elbowRightJoint";
@@ -157,7 +161,7 @@ namespace T3D
 		leg->setMaterial(color);
 		// Quaternion lq = Quaternion(Vector3(0,0,Math::PI/2));
 		// leg->getTransform()->setLocalRotation(lq);
-		leg->getTransform()->setLocalPosition(Vector3(0.0,3.0,0));
+		leg->getTransform()->setLocalPosition(Vector3(0.0,3.2,0));
 		leg->getTransform()->setParent(getTransform());
 		leg->getTransform()->name = "leg";
 

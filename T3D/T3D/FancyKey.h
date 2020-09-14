@@ -8,20 +8,22 @@
 //
 // Simple Cylinder mesh with coloured sides
 
-#ifndef KEY2_H
-#define KEY2_H
+#ifndef FANCYKEY_H
+#define FANCYKEY_H
 
 #include "Mesh.h"
+#include "GameObject.h"
 #include <vector>
 
 using namespace std;
 
 namespace T3D
 {
-class FancyKey : public Mesh
+class FancyKey : public GameObject
 {
 	public:
 	FancyKey(
+		T3DApplication *app, Material *color,
 		int d,    // The density of the key head (outer and inner cylinder)
 		float r1, // The radius of the holes in the key head
 		float r2, // The outer radius of the key head (r1<r2)

@@ -26,6 +26,7 @@
     <ClCompile Include="DiagMessageTask.cpp" />
     <ClCompile Include="DrawTask.cpp" />
     <ClCompile Include="FancyKey.cpp" />
+    <ClCompile Include="FancyKeyBody.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FontCache.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -86,6 +87,7 @@
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Cube2.h" />
     <ClInclude Include="Cylinder.h" />
+    <ClInclude Include="FancyKeyBody.h" />
     <ClInclude Include="Key.h" />
     <ClInclude Include="Lamp.h" />
     <ClInclude Include="Robot.h" />
