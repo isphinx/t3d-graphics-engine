@@ -21,14 +21,11 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Cube2.cpp" />
     <ClInclude Include="Assignment1Test.h" />
-    <ClInclude Include="Cylinder.cpp" />
-    <ClInclude Include="Key.cpp" />
-    <ClInclude Include="Key2.cpp" />
-    <ClInclude Include="Lamp.cpp" />
-    <ClInclude Include="Robot.cpp" />
-    <ClInclude Include="Pyramid.cpp" />
+    <ClInclude Include="FancyKey.h" />
+    <ClCompile Include="Cylinder.cpp" />
     <ClCompile Include="DiagMessageTask.cpp" />
     <ClCompile Include="DrawTask.cpp" />
+    <ClCompile Include="FancyKey.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FontCache.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -37,7 +34,9 @@
     <ClCompile Include="GLTestApplication.cpp" />
     <ClCompile Include="GLTestRenderer.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Key.cpp" />
     <ClCompile Include="KeyboardController.cpp" />
+    <ClCompile Include="Lamp.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LookAtBehaviour.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -53,8 +52,10 @@
     <ClCompile Include="PerfLogTask.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="PlaneMesh.cpp" />
+    <ClCompile Include="Pyramid.cpp" />
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Robot.cpp" />
     <ClCompile Include="RotateBehaviour.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderTest.cpp" />
@@ -86,7 +87,6 @@
     <ClInclude Include="Cube2.h" />
     <ClInclude Include="Cylinder.h" />
     <ClInclude Include="Key.h" />
-    <ClInclude Include="Key2.h" />
     <ClInclude Include="Lamp.h" />
     <ClInclude Include="Robot.h" />
     <ClInclude Include="Pyramid.h" />
@@ -195,8 +195,7 @@
       /NODEFAULTLIB:library;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)lib\*.dll" "$(TargetDir)"
-      /Y</Command>
+      <Command>xcopy "$(SolutionDir)lib\*.dll" "$(TargetDir)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

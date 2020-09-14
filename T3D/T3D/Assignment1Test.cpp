@@ -15,7 +15,7 @@
 #include "Pyramid.h"
 #include "Cylinder.h"
 #include "Key.h"
-#include "Key2.h"
+#include "FancyKey.h"
 #include "Robot.h"
 #include "Sweep.h"
 #include "SweepPath.h"
@@ -174,13 +174,13 @@ namespace T3D{
 
 		// task 4 key
 		{
-			GameObject* key2 = new GameObject(this);
+			GameObject* fkey = new GameObject(this);
 			vector<float> code = { 1.0, 1.0, 1.0, 0.7, 1.0, 0.7, 0.9, 1.0, 0.4 };
-			key2->setMesh(new Key2(40,1,5,2,0.5,2,4,code));
-			key2->setMaterial(color);
-			key2->getTransform()->setParent(root);
-			key2->getTransform()->setLocalPosition(Vector3(25, 0, 0));
-			key2->getTransform()->name = "Key";
+			fkey->setMesh(new FancyKey(40,1,5,2,0.5,2,4,code));
+			fkey->setMaterial(color);
+			fkey->getTransform()->setParent(root);
+			fkey->getTransform()->setLocalPosition(Vector3(25, 0, 0));
+			fkey->getTransform()->name = "Key";
 			
 		}
 

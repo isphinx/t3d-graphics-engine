@@ -52,7 +52,8 @@ namespace T3D
 			parent = NULL;
 		}
 		children.clear();
-		delete gameObject;
+		if(gameObject)
+			delete gameObject;
 	}
 
 	
