@@ -176,7 +176,7 @@ namespace T3D{
 		{
 			GameObject* fkey = new GameObject(this);
 			vector<float> code = { 1.0, 1.0, 1.0, 0.7, 1.0, 0.7, 0.9, 1.0, 0.4 };
-			fkey->setMesh(new FancyKey(40,1,5,2,0.5,2,4,code));
+			fkey->setMesh(new FancyKey(40,2,4,1,0.5,4,1,code));
 			fkey->setMaterial(color);
 			fkey->getTransform()->setParent(root);
 			fkey->getTransform()->setLocalPosition(Vector3(25, 0, 0));

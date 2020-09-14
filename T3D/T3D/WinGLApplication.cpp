@@ -63,7 +63,9 @@ namespace T3D
 		}
 		
 		//Initialize SDL_mixer
-		// soundManager->init();
+#ifdef WIN32
+		soundManager->init();
+#endif
 
 		SDL_GL_SetAttribute(SDL_GL_RED_SIZE,            8);
 		SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE,          8);
@@ -88,7 +90,12 @@ namespace T3D
 		glewInit();
 		glClearColor(1, 1, 1, 0);
 		glClearDepth(1.0f);
+
+#ifdef WIN32
+		glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+#else
 		glViewport(0, 0, WINDOW_WIDTH * 2, WINDOW_HEIGHT * 2);
+#endif
 
 		// Initialize SDL_ttf library
 		if (TTF_Init() != 0)
@@ -116,7 +123,9 @@ namespace T3D
 		SDL_Event sdlEvent;
 		lastFrame = SDL_GetTicks()/1000.0f;
 		while(running) {
-			// soundManager->update();
+#ifdef WIN32
+			soundManager->update();
+#endif
 
 			float thisFrame = SDL_GetTicks()/1000.0f;
 			dt = thisFrame-lastFrame;
