@@ -16,6 +16,7 @@
 #include "Cylinder.h"
 #include "Key.h"
 #include "Lamp.h"
+#include "AnimationTask.h"
 
 namespace T3D{
 
@@ -86,6 +87,23 @@ namespace T3D{
 		lamp->base->setMaterial(grey);
 		lamp->arm1->setMaterial(grey);
 		lamp->arm2->setMaterial(grey);
+
+		// AnimationTask *animTask = new AnimationTask(this);
+		// animTask->lamp = lamp->getTransform();
+		// addTask(animTask);
+
+		Animation *anim = new Animation(10.0);
+		lamp->addComponent(anim);
+		anim->addKey("ElbowJoint", 0, Quaternion(Vector3(0, 0, 0)), Vector3(0, 0.2, 0));
+		anim->addKey("ElbowJoint", 5.0, Quaternion(Vector3(-Math::HALF_PI, 0, 0)), Vector3(0, 0.2, 0));
+		anim->addKey("ElbowJoint", 7.0, Quaternion(Vector3(Math::HALF_PI, 0, 0)), Vector3(0, 0.2, 0));
+		anim->addKey("ElbowJoint", 10.0, Quaternion(Vector3(0, 0, 0)), Vector3(0, 0.2, 0));
+		anim->addKey("ShadeJoint", 0, Quaternion(Vector3(0, 0, 0)), Vector3(0, 0.2, 0));
+		anim->addKey("ShadeJoint", 5.0, Quaternion(Vector3(0, 0, -Math::HALF_PI)), Vector3(0, 0.2, 0));
+		anim->addKey("ShadeJoint", 7.0, Quaternion(Vector3(0, 0, Math::HALF_PI)), Vector3(0, 0.2, 0));
+		anim->addKey("ShadeJoint", 10.0, Quaternion(Vector3(0, 0, 0)), Vector3(0, 0.2, 0));
+		anim->loop(true);
+		anim->play();
 
 		// Quaternion q = Quaternion(Vector3(-Math::PI/10,Math::PI/4,0));
 		// lamp->baseJoint->getTransform()->setLocalRotation(q);

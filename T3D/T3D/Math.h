@@ -24,9 +24,9 @@ namespace T3D
 	class Math
 	{
 	public:
-        static const float PI;
-        static const float TWO_PI;
-        static const float HALF_PI;
+		static const float PI;
+		static const float TWO_PI;
+		static const float HALF_PI;
 		static const float DEG2RAD;
 		static const float RAD2DEG;
 		static const float LOG2;
@@ -64,6 +64,31 @@ namespace T3D
 			return std::max(
 				std::min(maximum,value),minimum
 				); 
+		}
+		static float smoothedLerp(float startPos,
+								  float endPos,
+								  float time,
+								  float accelerationTime) {
+			float dist = abs(startPos - endPos);
+			float acceleration = dist/(accelerationTime*(1 - accelerationTime));
+			float velocity = acceleration * accelerationTime;
+			if (time < 0)
+				return startPos;
+			else if (time < accelerationTime)
+				return startPos + 0.5 * acceleration * time * time;
+			else if (time < 1 - accelerationTime)
+				return startPos +
+					0.5 * acceleration * accelerationTime * accelerationTime +
+					velocity * (time - accelerationTime);
+			else if (time <= 1)
+				return startPos +
+					0.5 * acceleration * accelerationTime * accelerationTime +
+					velocity * (1 - 2 * accelerationTime) +
+					velocity * (time - 1 + accelerationTime) -
+					0.5 * acceleration *
+					(time - 1 + accelerationTime) * (time - 1 + accelerationTime);
+			return endPos;
+			
 		}
 	};
 }

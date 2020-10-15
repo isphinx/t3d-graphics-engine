@@ -58,7 +58,8 @@ namespace T3D
 				// Set to interpolated state bequence keyframes
 				float alpha = (time-keyframes[frame-1].time)/(keyframes[frame].time-keyframes[frame-1].time);
 				transform->setLocalPosition(Vector3::lerp(keyframes[frame-1].position,keyframes[frame].position,alpha));
-				// transform->setLocalRotation(Quaternion::slerp(keyframes[frame-1].rotation,keyframes[frame].rotation,alpha));
+				Quaternion aa = Quaternion::slerp(keyframes[frame-1].rotation,keyframes[frame].rotation,alpha);
+				transform->setLocalRotation(aa);
 			}
 		}
 	}

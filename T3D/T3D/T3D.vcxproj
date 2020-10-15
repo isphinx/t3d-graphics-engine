@@ -13,14 +13,18 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Assignment1Test.cpp" />
+    <ClCompile Include="Assignment2Test.cpp" />
     <ClCompile Include="Billboard.cpp" />
     <ClCompile Include="Bone.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Case.cpp" />
     <ClCompile Include="Colour.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Cube2.cpp" />
     <ClInclude Include="Assignment1Test.h" />
+    <ClInclude Include="Assignment2Test.h" />
+    <ClInclude Include="Case.h" />
     <ClInclude Include="FancyKey.h" />
     <ClCompile Include="Cylinder.cpp" />
     <ClCompile Include="DiagMessageTask.cpp" />
