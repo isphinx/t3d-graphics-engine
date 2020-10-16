@@ -13,7 +13,11 @@
 #include "Robot.h"
 #include "RotateBehaviour.h"
 #include "GLShader.h"
+#include "Sphere.h"
 #include "Animation.h"
+#include "AnimationTask.h"
+#include "Cube.h"
+#include "Cube2.h"
 #include <vector>
 
 namespace T3D{
@@ -51,8 +55,9 @@ namespace T3D{
 		// carema
 		GameObject *camObj = new GameObject(this);
 		renderer->camera = new Camera(Camera::PERSPECTIVE, 0.1, 500.0, 45.0, 1.6);
-		camObj->getTransform()->setLocalPosition(Vector3(0, 0, 20));
-		camObj->getTransform()->setLocalRotation(Vector3(0, 0, 0));
+		camObj->getTransform()->setLocalPosition(Vector3(-25, 25, 20));
+		Quaternion camrotat = Quaternion(Vector3(-Math::HALF_PI*2/5, -Math::HALF_PI/2, 0));
+		camObj->getTransform()->setLocalRotation(camrotat);
 		camObj->setCamera(renderer->camera);
 		camObj->getTransform()->setParent(root);
 		camObj->addComponent(new KeyboardController());
@@ -75,18 +80,90 @@ namespace T3D{
 			robot->getTransform()->setLocalPosition(Vector3(0,0,0));
 			robot->getTransform()->setParent(root);
 
-			Animation *anim = new Animation(10.0);
+			Animation *anim = new Animation(30.0);
 			robot->addComponent(anim);
+			anim->addKey("Robot", 0, Quaternion(Vector3(0, 0, 0)), Vector3(0, 0, 0));
+			anim->addKey("Robot", 1, Quaternion(Vector3(0, 0, 0)), Vector3(0, 0, 0));
+			anim->addKey("Robot", 5.0, Quaternion(Vector3(0, 0, 0)), Vector3(0, 0,-12));
+			anim->addKey("Robot", 7.0, Quaternion(Vector3(0, Math::HALF_PI, 0)), Vector3(0, 0, -12));
+			anim->addKey("Robot", 10.0, Quaternion(Vector3(0, Math::HALF_PI, 0)), Vector3(-12, 0, -12));
+			anim->addKey("Robot", 15.0, Quaternion(Vector3(0, Math::HALF_PI, 0)), Vector3(-12, 0, -12));
+			anim->addKey("Robot", 18.0, Quaternion(Vector3(0, -Math::HALF_PI, 0)), Vector3(-12, 0, -12));
+			anim->addKey("Robot", 24.0, Quaternion(Vector3(0, -Math::HALF_PI, 0)), Vector3(12, 0, -12));
+			anim->addKey("Robot", 30.0, Quaternion(Vector3(0, -Math::HALF_PI, 0)), Vector3(12, 0, -12));
+
 			anim->addKey("shoulderLeftJoint", 0, Quaternion(Vector3(0, 0, 0)), Vector3(0, 2.0, 0));
-			anim->addKey("shoulderLeftJoint", 5.0, Quaternion(Vector3(-Math::HALF_PI, 0, 0)), Vector3(0, 2.0, 0));
-			anim->addKey("shoulderLeftJoint", 7.0, Quaternion(Vector3(Math::HALF_PI, 0, 0)), Vector3(0, 2.0, 0));
-			anim->addKey("shoulderLeftJoint", 10.0, Quaternion(Vector3(0, 0, 0)), Vector3(0, 2.0, 0));
+			anim->addKey("shoulderLeftJoint", 10, Quaternion(Vector3(0, 0, 0)), Vector3(0, 2.0, 0));
+			anim->addKey("shoulderLeftJoint", 14.0, Quaternion(Vector3(0, -Math::HALF_PI/2, 0)), Vector3(0, 2.0, 0));
+			anim->addKey("shoulderLeftJoint", 24.0, Quaternion(Vector3(0, -Math::HALF_PI/2, 0)), Vector3(0, 2.0, 0));
+			anim->addKey("shoulderLeftJoint", 28, Quaternion(Vector3(0, 0, 0)), Vector3(0, 2.0, 0));
+			anim->addKey("shoulderLeftJoint", 30, Quaternion(Vector3(0, 0, 0)), Vector3(0, 2.0, 0));
+
+			anim->addKey("shoulderRightJoint", 0, Quaternion(Vector3(0, 0, 0)), Vector3(0, -2.0, 0));
+			anim->addKey("shoulderRightJoint", 10, Quaternion(Vector3(0, 0, 0)), Vector3(0, -2.0, 0));
+			anim->addKey("shoulderRightJoint", 14.0, Quaternion(Vector3(0, -Math::HALF_PI/2, 0)), Vector3(0, -2.0, 0));
+			anim->addKey("shoulderRightJoint", 24.0, Quaternion(Vector3(0, -Math::HALF_PI/2, 0)), Vector3(0, -2.0, 0));
+			anim->addKey("shoulderRightJoint", 28, Quaternion(Vector3(0, 0, 0)), Vector3(0, -2.0, 0));
+			anim->addKey("shoulderRightJoint", 30, Quaternion(Vector3(0, 0, 0)), Vector3(0, -2.0, 0));
+
+
+			anim->addKey("elbowRightJoint", 0, Quaternion(Vector3(0, 0, 0)), Vector3(-2, 0, 0));
+			anim->addKey("elbowRightJoint", 10, Quaternion(Vector3(0, 0, 0)), Vector3(-2, 0, 0));
+			anim->addKey("elbowRightJoint", 14.0, Quaternion(Vector3(0, -Math::HALF_PI/2, -Math::HALF_PI/2)), Vector3(-2, 0, 0));
+			anim->addKey("elbowRightJoint", 24.0, Quaternion(Vector3(0, -Math::HALF_PI/2, -Math::HALF_PI/2)), Vector3(-2, 0, 0));
+			anim->addKey("elbowRightJoint", 28.0, Quaternion(Vector3(0, 0, 0)), Vector3(-2, 0, 0));
+			anim->addKey("elbowRightJoint", 30.0, Quaternion(Vector3(0, 0, 0)), Vector3(-2, 0, 0));
+
 			anim->addKey("elbowLeftJoint", 0, Quaternion(Vector3(0, 0, 0)), Vector3(-2, 0, 0));
-			anim->addKey("elbowLeftJoint", 5.0, Quaternion(Vector3(0, 0, -Math::HALF_PI)), Vector3(-2, 0, 0));
-			anim->addKey("elbowLeftJoint", 7.0, Quaternion(Vector3(0, 0, Math::HALF_PI)), Vector3(-2, 0, 0));
-			anim->addKey("elbowLeftJoint", 10.0, Quaternion(Vector3(0, 0, 0)), Vector3(-2, 0, 0));
-			anim->loop(true);
+			anim->addKey("elbowLeftJoint", 10, Quaternion(Vector3(0, 0, 0)), Vector3(-2, 0, 0));
+			anim->addKey("elbowLeftJoint", 14.0, Quaternion(Vector3(0, -Math::HALF_PI/2, Math::HALF_PI/2)), Vector3(-2, 0, 0));
+			anim->addKey("elbowLeftJoint", 24.0, Quaternion(Vector3(0, -Math::HALF_PI/2, Math::HALF_PI/2)), Vector3(-2, 0, 0));
+			anim->addKey("elbowLeftJoint", 28.0, Quaternion(Vector3(0, 0, 0)), Vector3(-2, 0, 0));
+			anim->addKey("elbowLeftJoint", 30.0, Quaternion(Vector3(0, 0, 0)), Vector3(-2, 0, 0));
+
+			anim->loop(false);
 			anim->play();
+
+			
+			GameObject* box1 = new GameObject(this);
+			box1->setMesh(new Cube(1.0));
+			box1->getTransform()->setParent(robot->getTransform());
+			box1->getTransform()->setLocalPosition(Vector3(0, 3.0, -3));
+			box1->getTransform()->name = "box1";
+			box1->setMaterial(color);
+			box1->setVisible(false);
+
+			GameObject* box2 = new GameObject(this);
+			box2->setMesh(new Cube(1.0));
+			box2->getTransform()->setParent(root);
+			box2->getTransform()->setLocalPosition(Vector3(-15, 3.0, -12));
+			box2->getTransform()->name = "box2";
+			box2->setMaterial(color);
+
+			// GameObject* box3 = new GameObject(this);
+			// box3->setMesh(new Cube(1.0));
+			// box3->getTransform()->setParent(root);
+			// box3->getTransform()->setLocalPosition(Vector3(15, 3.0, -12));
+			// box3->getTransform()->name = "box3";
+			// box3->setMaterial(color);
+			// box3->setVisible(false);
+
+			GameObject* box4 = new GameObject(this);
+			box4->setMesh(new Cube2(1.0,1.0,12.0));
+			box4->getTransform()->setParent(root);
+			box4->getTransform()->setLocalPosition(Vector3(-15, 1.0, -6));
+			box4->getTransform()->name = "box4";
+			box4->setMaterial(color);
+
+			GameObject* box5 = new GameObject(this);
+			box5->setMesh(new Cube2(1.0,1.0,12.0));
+			box5->getTransform()->setParent(root);
+			box5->getTransform()->setLocalPosition(Vector3(15, 1.0, -6));
+			box5->getTransform()->name = "box5";
+			box5->setMaterial(color);
+
+			AnimationTask *animTask = new AnimationTask(this, box1, box2, camObj);
+			addTask(animTask);
 		}
 
 		Material *fixedGreen = renderer->createMaterial(Renderer::PR_OPAQUE);
@@ -122,7 +199,7 @@ namespace T3D{
 		// task 3 shader
 		{
 			GameObject* shader = new GameObject(this);
-			shader->setMesh(new Case());
+			shader->setMesh(new Sphere(2,16));
 			shader->getTransform()->setParent(root);
 			shader->getTransform()->setLocalPosition(Vector3(20, 0, 0));
 			shader->getTransform()->name = "shader";
@@ -134,7 +211,7 @@ namespace T3D{
 		// task 4 toon shader
 		{
 			GameObject* shader = new GameObject(this);
-			shader->setMesh(new Case());
+			shader->setMesh(new Sphere(2,16));
 			shader->getTransform()->setParent(root);
 			shader->getTransform()->setLocalPosition(Vector3(30, 0, 0));
 			shader->getTransform()->name = "toon shader";

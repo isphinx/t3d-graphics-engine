@@ -20,8 +20,8 @@
 namespace T3D
 {
 	//min and max speeds for key and mouse sensitivity
-	#define KEY_SENSITIVITY_MIN 5
-	#define KEY_SENSITIVITY_MAX 50
+	#define KEY_SENSITIVITY_MIN 50
+	#define KEY_SENSITIVITY_MAX 100
 	#define MOUSE_SENSITIVITY_MIN 0.0005f;
 	#define MOUSE_SENSITIVITY_MAX 0.0010f;
 
@@ -37,12 +37,15 @@ namespace T3D
 	}
 
 	void KeyboardController::update(float dt){
+		static float elapse = 0;
+		elapse += dt;
 
-		//resolve all of the input actions
-		keyDownResolve(dt);
-		keyUpResolve(dt);
-		mouseMoveResolve();
-		
+		if (elapse > 28) {
+			//resolve all of the input actions
+			keyDownResolve(dt);
+			keyUpResolve(dt);
+			mouseMoveResolve();
+		}
 	}
 
 	//Method to resolve the actions of each keyDown event
