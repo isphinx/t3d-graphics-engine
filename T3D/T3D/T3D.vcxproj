@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="AnimationTask.cpp" />
     <ClCompile Include="Assignment1Test.cpp" />
     <ClCompile Include="Assignment2Test.cpp" />
     <ClCompile Include="Billboard.cpp" />
@@ -22,6 +23,7 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Cube2.cpp" />
+    <ClInclude Include="AnimationTask.h" />
     <ClInclude Include="Assignment1Test.h" />
     <ClInclude Include="Assignment2Test.h" />
     <ClInclude Include="Case.h" />

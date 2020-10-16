@@ -57,6 +57,7 @@ namespace T3D{
 		renderer->camera = new Camera(Camera::PERSPECTIVE, 0.1, 500.0, 45.0, 1.6);
 		camObj->getTransform()->setLocalPosition(Vector3(-25, 25, 20));
 		Quaternion camrotat = Quaternion(Vector3(-Math::HALF_PI*2/5, -Math::HALF_PI/2, 0));
+
 		camObj->getTransform()->setLocalRotation(camrotat);
 		camObj->setCamera(renderer->camera);
 		camObj->getTransform()->setParent(root);
@@ -166,22 +167,12 @@ namespace T3D{
 			addTask(animTask);
 		}
 
-		Material *fixedGreen = renderer->createMaterial(Renderer::PR_OPAQUE);
-		fixedGreen->setDiffuse(0.0,0.6,0,1);
-		fixedGreen->setShininess(20);
-		Material *gouraudGreen = renderer->createMaterial(Renderer::PR_OPAQUE);
-		gouraudGreen->setDiffuse(0.0,0.6,0,1);
-		// gouraudGreen->setShininess(20);
-		Material *phongGreen = renderer->createMaterial(Renderer::PR_OPAQUE);
-		phongGreen->setDiffuse(0.0,0.6,0,1);
-		phongGreen->setShininess(20);
-
-		GLShader *gouraudShader = new GLShader("Resources/vspecular.shader","Resources/frag.shader");
-		// GLShader *gouraudShader = new GLShader("Resources/phongVert.shader","Resources/phongFrag.shader");
-		gouraudShader->compileShader();
-		gouraudGreen->setShader(gouraudShader);
 		// task 2 texture
 		{
+			Material *gouraudGreen = renderer->createMaterial(Renderer::PR_OPAQUE);
+			gouraudGreen->setDiffuse(0.0,0.6,0,1);
+			gouraudGreen->setShininess(20);
+
 			GameObject* thecase = new GameObject(this);
 			thecase->setMesh(new Case());
 			thecase->getTransform()->setParent(root);
@@ -198,26 +189,41 @@ namespace T3D{
 
 		// task 3 shader
 		{
+			Material *task3material = renderer->createMaterial(Renderer::PR_OPAQUE);
+			task3material->setDiffuse(0.0,0.6,0,1);
+			task3material->setShininess(20);
+
+			GLShader *task3shader = new GLShader("Resources/vstask3.shader","Resources/fragtask3.shader");
+			task3shader->compileShader();
+			task3material->setShader(task3shader);
+
 			GameObject* shader = new GameObject(this);
 			shader->setMesh(new Sphere(2,16));
 			shader->getTransform()->setParent(root);
-			shader->getTransform()->setLocalPosition(Vector3(20, 0, 0));
+			shader->getTransform()->setLocalPosition(Vector3(-10, 0, 0));
 			shader->getTransform()->name = "shader";
 
-
-			shader->setMaterial(gouraudGreen);
+			shader->setMaterial(task3material);
 		}
 
 		// task 4 toon shader
 		{
+			Material *task4material = renderer->createMaterial(Renderer::PR_OPAQUE);
+			task4material->setDiffuse(0.0,0.6,0,1);
+			task4material->setShininess(20);
+
+			GLShader *task4shader = new GLShader("Resources/vstask4.shader","Resources/fragtask4.shader");
+			task4shader->compileShader();
+			task4material->setShader(task4shader);
+
 			GameObject* shader = new GameObject(this);
 			shader->setMesh(new Sphere(2,16));
 			shader->getTransform()->setParent(root);
-			shader->getTransform()->setLocalPosition(Vector3(30, 0, 0));
+			shader->getTransform()->setLocalPosition(Vector3(0, 0, 0));
 			shader->getTransform()->name = "toon shader";
 
 
-			shader->setMaterial(phongGreen);
+			shader->setMaterial(task4material);
 		}
 
 		return true;
